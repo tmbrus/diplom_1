@@ -1,19 +1,16 @@
 import pytest
 from praktikum.bun import Bun
-
+from praktikum.data import BUN_NAMES, BUN_PRICES
 
 class TestBun:
-    list_data_name = ["black bun", "white bun", "", "1", "b"]
-    list_data_price = [100.0, 0.0, 0.01, 999.99]
-
-    @pytest.mark.parametrize("name", list_data_name)
+    @pytest.mark.parametrize("name", BUN_NAMES)
     def test_bun_names(self, name):
         price = 99.0
         bun = Bun(name, price)
 
         assert bun.get_name() == name
 
-    @pytest.mark.parametrize("price", list_data_price)
+    @pytest.mark.parametrize("price", BUN_PRICES)
     def test_bun_price(self, price):
         name = "black bun"
         bun = Bun(name, price)

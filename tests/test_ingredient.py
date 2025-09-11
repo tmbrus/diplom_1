@@ -1,14 +1,10 @@
 import pytest
-
 from praktikum.ingredient import Ingredient
-
+from praktikum.data import INGREDIENT_TYPES, INGREDIENT_NAMES, INGREDIENT_PRICES
 
 class TestIngredient:
-    list_data_types = ["SAUCE", "FILLING"]
-    list_data_names = ["hot sauce", "cutlet", "", "1", "c" * 100]
-    list_data_price = [100.0, 200.0, 0.0, 0.01, 999.99]
 
-    @pytest.mark.parametrize("types", list_data_types)
+    @pytest.mark.parametrize("types", INGREDIENT_TYPES)
     def test_ingredients_types(self, types):
         name = "hot sauce"
         price = 100.0
@@ -16,7 +12,7 @@ class TestIngredient:
 
         assert ingredient.get_type() == types
 
-    @pytest.mark.parametrize("name", list_data_names)
+    @pytest.mark.parametrize("name", INGREDIENT_NAMES)
     def test_ingredients_names(self, name):
         types = "SAUCE"
         price = 100.0
@@ -24,7 +20,7 @@ class TestIngredient:
 
         assert ingredient.get_name() == name
 
-    @pytest.mark.parametrize("price", list_data_price)
+    @pytest.mark.parametrize("price", INGREDIENT_PRICES)
     def test_ingredients_price(self, price):
         types = "SAUCE"
         name = "hot sauce"
